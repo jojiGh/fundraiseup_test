@@ -36,23 +36,23 @@
         }
         })(window,document,'script','FundraiseUp','AEMZUDUM');
     </script>
-
+    
     <script>
-        FundraiseUp.on('checkout:open', function() {
-            gtag('event','checkout_open',{
-            event_category:'FundraiseUp',
-            event_label:'Donation Checkout Opened'
-            });
-        });
-    </script>
-
-    <script>
-        FundraiseUp.on('donation:complete', function(data){
+        document.addEventListener('FundraiseUp:ready', function () {
         
-        gtag('event','donation',{
-            value:data.amount,
-            currency:data.currency
-        });
+          FundraiseUp.on('checkout:open', function () {
+            gtag('event','checkout_open',{
+              event_category:'FundraiseUp',
+              event_label:'Donation Checkout Opened'
+            });
+          });
+        
+          FundraiseUp.on('donation:complete', function(data){
+            gtag('event','donation',{
+              value:data.amount,
+              currency:data.currency
+            });
+          });
         
         });
     </script>
