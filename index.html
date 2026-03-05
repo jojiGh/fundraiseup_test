@@ -35,11 +35,10 @@
                 w[n]=o
         }
         })(window,document,'script','FundraiseUp','AEMZUDUM');
-    </script>
-    
-    <script>
-    
-    FundraiseUp.on('checkoutOpen', function(details) {
+
+        window.fundraiseup_livemode = false;
+
+            FundraiseUp.on('checkoutOpen', function(details) {
     
       gtag('event','checkout_open',{
         event_category: 'FundraiseUp',
@@ -60,7 +59,6 @@
     FundraiseUp.on('checkoutOpen', function(details){
       console.log('checkout opened', details);
     });
-    
     </script>
     
     <meta charset="UTF-8">
