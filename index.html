@@ -9,7 +9,7 @@
       gtag('js', new Date());
       gtag('config', 'G-ZDPMCEEE17');
     </script>
-    
+
     <!-- Fundraise Up -->
     <script>
         (function(w,d,s,n,a){
@@ -36,14 +36,16 @@
         })(window,document,'script','FundraiseUp','AEMZUDUM');
         window.fundraiseup_livemode = false;
 
+        // checkoutOpen: donation is null at this point, only campaign info is available
         FundraiseUp('on', 'checkoutOpen', function(details) {
             console.log('checkoutOpen', details);
             gtag('event', 'begin_checkout', {
-                currency: details.donation.currency,
-                value: details.donation.amount
+                campaign_id: details.campaign.id,
+                campaign_name: details.campaign.name
             });
         });
 
+        // donationComplete: donation object is now fully populated
         FundraiseUp('on', 'donationComplete', function(details) {
             console.log('donationComplete', details);
             gtag('event', 'purchase', {
@@ -53,7 +55,7 @@
             });
         });
     </script>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Title</title>
