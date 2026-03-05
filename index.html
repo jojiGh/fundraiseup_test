@@ -37,6 +37,15 @@
         })(window,document,'script','FundraiseUp','AEMZUDUM');
     </script>
 
+    <script>
+        FundraiseUp.on('checkout:open', function() {
+            gtag('event','checkout_open',{
+            event_category:'FundraiseUp',
+            event_label:'Donation Checkout Opened'
+            });
+        });
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Title</title>
