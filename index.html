@@ -47,22 +47,30 @@
 <body>
     <h1>Helping Hand Demo</h1>
     
-    <a href="#XJKDHSTQ?test=true">Donate</a>
+    <a href="#XJKDHSTQ">Donate</a>
 
     <script>
+    FundraiseUp('on','checkoutOpen', function(details){
     
-      gtag('event','checkout_open',{
-        event_category: 'FundraiseUp',
-        event_label: 'Checkout opened'
+      console.log('checkoutOpen', details);
+    
+      gtag('event','begin_checkout',{
+        currency: details.currency,
+        value: details.amount
       });
-        
-      gtag('event','donation',{
+    
+    });
+    
+    FundraiseUp('on','donationComplete', function(details){
+    
+      console.log('donationComplete', details);
+    
+      gtag('event','purchase',{
+        currency: details.currency,
         value: details.amount,
-        currency: details.currency
-      });;
-
-    FundraiseUp.on('checkoutOpen', function(details){
-      console.log('checkout opened', details);
+        transaction_id: details.donationId
+      });
+    
     });
     </script>
 </body>
