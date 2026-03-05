@@ -38,23 +38,18 @@
     </script>
     
     <script>
-        document.addEventListener('FundraiseUp:ready', function () {
-        
-          FundraiseUp.on('checkout:open', function () {
-            gtag('event','checkout_open',{
-              event_category:'FundraiseUp',
-              event_label:'Donation Checkout Opened'
-            });
-          });
-        
-          FundraiseUp.on('donation:complete', function(data){
-            gtag('event','donation',{
-              value:data.amount,
-              currency:data.currency
-            });
-          });
-        
-        });
+    FundraiseUp.on('checkout:open', function () {
+      gtag('event', 'checkout_open', {
+        event_category: 'FundraiseUp'
+      });
+    });
+    
+    FundraiseUp.on('donationComplete', function(data) {
+      gtag('event', 'donation', {
+        value: data.amount,
+        currency: data.currency
+      });
+    });
     </script>
     
     <meta charset="UTF-8">
