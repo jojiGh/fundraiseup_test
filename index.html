@@ -1,63 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDPMCEEE17"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-ZDPMCEEE17');
+    </script>
+    
+    <!-- Fundraise Up -->
+    <script>
+        (function(w,d,s,n,a){
+        if(!w[n]){
+            var l='call,catch,on,once,set,then,track'.split(','),
+            i,
+            o=function(n){
+            return typeof n=='function'
+            ?o.l.push([arguments])&&o
+            :function(){return o.l.push([n,arguments])&&o}
+            },
+            t=d.getElementsByTagName(s)[0],
+            j=d.createElement(s);
+            j.async=true;
+            j.src='https://cdn.fundraiseup.com/widget/'+a;
+            t.parentNode.insertBefore(j,t);
+            o.s=Date.now();
+            o.v=4;
+            o.h=w.location.href;
+            o.l=[];
+            for(i=0;i<7;i++)o[l[i]]=o(l[i]);
+                w[n]=o
+        }
+        })(window,document,'script','FundraiseUp','AEMZUDUM');
+    </script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        FundraiseUp.on('checkout:open', function() {
+            gtag('event','checkout_open',{
+            event_category:'FundraiseUp',
+            event_label:'Donation Checkout Opened'
+            });
+        });
+    </script>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDPMCEEE17"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-ZDPMCEEE17');
-</script>
-
-<!-- Fundraise Up -->
-<script>
-(function(w,d,s,n,a){
-if(!w[n]){
-var l='call,catch,on,once,set,then,track'.split(','),i,
-o=function(n){return typeof n=='function'?o.l.push([arguments])&&o:function(){return o.l.push([n,arguments])&&o}},
-t=d.getElementsByTagName(s)[0],
-j=d.createElement(s);
-j.async=true;
-j.src='https://cdn.fundraiseup.com/widget/'+a;
-t.parentNode.insertBefore(j,t);
-o.s=Date.now();
-o.v=4;
-o.h=w.location.href;
-o.l=[];
-for(i=0;i<7;i++)o[l[i]]=o(l[i]);
-w[n]=o;
-}
-})(window,document,'script','FundraiseUp','AEMZUDUM');
-</script>
-
-<script>
-FundraiseUp.on('ready', function () {
-
-  FundraiseUp.on('checkout:open', function () {
-    gtag('event','checkout_open');
-  });
-
-  FundraiseUp.on('donation:complete', function(data){
-    gtag('event','donation',{
-      value:data.amount,
-      currency:data.currency
-    });
-  });
-
-});
-</script>
-
-<title>Helping Hand Demo</title>
-
+    <script>
+        FundraiseUp.on('donation:complete', function(data){
+        
+        gtag('event','donation',{
+            value:data.amount,
+            currency:data.currency
+        });
+        
+        });
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
 </head>
 <body>
     <h1>Helping Hand Demo</h1>
     
-    <a href="#XJKDHSTQ">Donate</a>
+    <a href="#XJKDHSTQ?test=true">Donate</a>
 </body>
 </html>
