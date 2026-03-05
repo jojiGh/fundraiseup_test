@@ -54,14 +54,9 @@
     <a href="#XJKDHSTQ">Donate</a>
 
     <script>
-        FundraiseUp.on('donationComplete', function(details) {
-          var amount = details.donation.amount || 0;
-          var currency = details.donation.currency || 'USD';
-            
-          gtag('event', 'donation_complete', {
-          'amount' : details.amount,
-          'currency' : details.currency
-        });
+FundraiseUp.on('checkoutOpen', function(details) {	
+    console.log(details);
+  });
     </script>
 </body>
 </html>
