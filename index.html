@@ -38,17 +38,19 @@
     </script>
     
     <script>
-    FundraiseUp.on('checkout:open', function () {
+    FundraiseUp.on('checkout:open', function(details) {
       gtag('event', 'checkout_open', {
         event_category: 'FundraiseUp'
       });
+        console.log(details);
     });
     
-    FundraiseUp.on('donationComplete', function(data) {
+    FundraiseUp.on('donationComplete', function(details) {
       gtag('event', 'donation', {
         value: data.amount,
         currency: data.currency
       });
+        console.log(details);
     });
     </script>
     
