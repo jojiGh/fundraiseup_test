@@ -45,6 +45,17 @@
             });
         });
     </script>
+
+    <script>
+        FundraiseUp.on('donation:complete', function(data){
+        
+        gtag('event','donation',{
+            value:data.amount,
+            currency:data.currency
+        });
+        
+        });
+    </script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
