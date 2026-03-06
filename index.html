@@ -55,7 +55,12 @@
 
     <script>
 FundraiseUp.on('checkoutOpen', function(details) {	
-    console.log(details);
+    console.log("CHECKOUT OPEN");
+      gtag('event', 'checkout_open', {
+      'test_param_1' : 'test',
+      'test_param_2' : 5
+      });
+    
   });
     </script>
 </body>
