@@ -12,7 +12,6 @@
           'test_param_1' : 'test',
           'test_param_2' : 5
       });
-        gtag('event', 'xyz', { 'debug_mode':true });
     </script>
     
     <!-- Fundraise Up -->
@@ -55,18 +54,14 @@
 
     <script>
         FundraiseUp.on('checkoutOpen', function(details) {	
-            for (let i = 0; i < 10; i++) {
                 console.log("CHECKOUT OPEN");
-            }
               gtag('event', 'checkout_open');
           });
 
         FundraiseUp.on('donationComplete', function(details) {	
                 var amount = details.donation.amount;
                 var currency = details.donation.currency;
-            for (let i = 0; i < 10; i++) {
             console.log(amount, currency);
-            }
       gtag('event', 'donation_complete', {
       'amount' : amount,
       'currency' : currency
