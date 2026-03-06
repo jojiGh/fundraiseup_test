@@ -53,18 +53,18 @@
     <a href="#XJKDHSTQ">Donate</a>
 
     <script>
-        FundraiseUp.on('checkoutOpen', function(details) {	
+        FundraiseUp.on('checkoutOpen', function() {	
                 console.log("CHECKOUT OPEN");
               gtag('event', 'checkout_open');
           });
 
         FundraiseUp.on('donationComplete', function(details) {	
-                var amount = details.donation.amount;
-                var currency = details.donation.currency;
+                let amount = details.donation.amount;
+                let currency = details.donation.currency;
             console.log(amount, currency);
       gtag('event', 'donation_complete', {
-      'amount' : amount,
-      'currency' : currency
+      'amount' : details.donation.amount,
+      'currency' : details.donation.currency
       });
     </script>
 </body>
